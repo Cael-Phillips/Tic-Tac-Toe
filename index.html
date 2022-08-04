@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/init.js"></script>
+</head>
+<body onload="init()">
+    <div id="playerEntry">
+        <label for="playerOneName">Enter Player One's Name</label>
+        <input id="playerOneName" type="text">
+        <br>
+        <br>
+        <label for="playerTwoName">Enter Player Two's Name</label>
+        <input id="playerTwoName" type="text">
+        <br>
+        <button type="button" id="playerSubmit" onclick="playerCreate()">Submit</button>
+    </div>
+    <div id="gameboard">
+        <table border="1" frame="void" rules="all">
+            <tr>
+                <td id="tO"></td>
+                <td id="tT"></td>
+                <td id="tTh"></td>
+            </tr>
+            <tr>
+                <td id="mO"></td>
+                <td id="mT"></td>
+                <td id="mTh"></td>
+            </tr>
+            <tr>
+                <td id="bO"></td>
+                <td id="bT"></td>
+                <td id="bTh"></td>
+            </tr>
+        </table>
+    </div>
+    <h1 id="endMessage"></h1>
+    
+    <script src="js/player.js"></script>
+    <script src="js/logic.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/checks.js"></script>
+    <script>
+        function playerCreate() {
+            const pOne = new Player(document.getElementById("playerOneName").value, 1)
+            const pTwo = new Player(document.getElementById("playerTwoName").value, 2)
+            document.getElementById('playerEntry').style.display = "none";
+            document.getElementById('gameboard').style.display = "block";
+            start(pOne,pTwo);
+        }
+    </script>
+</body>
+</html>
